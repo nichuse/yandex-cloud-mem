@@ -1,0 +1,7 @@
+ssh_pwauth: no
+users:
+  - name: nichuse
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDk/dzixrEE4QPBo8IhwlmapbRQaIG7VU2Y9LnXRg4dTkLXlt/srpb/bc8lm1axPVqHlqIhGExyZn5nPsaNnjc6NyDW4q9wWLJMLAOwUrqyOYHUabJkS6lj6gxpfqiUz34N3wyfP1s32hrQ/RD1cbeA6ug7Z2JKsJF68mbkKPqVYQ7ysNKoOZatpxx1Y9YKXgGM3ijXqJ8eqmiWHWBxWeBei3pFtX0FEvIPB64cn5Oa6uj7YKiQoap3NRASquY7YyeE4PrCV5waHYTonz4PfmccHqJ/jqtkZxt7Ua7rGrAsbXkiI2f9jUJk6TGGVPZuowBIVFIDx8irGArmv9qk55QV4FG789m+OYF3hrofmHCkceY5WXBo6TJ99JfyXUNJo4nd2NXkcy7Y1EmKy40IcoWJQGTr7bp4jPUyIsJQaPhi6ZUD98JjWRN5+pcEeWF+9kJUnSnT4GNuzifOra4NcgvYehhmyAK5bB4u36+crptFqJgxvnP0s/R5dKd8ZBHvPck= asd@asd-Latitude-5480"

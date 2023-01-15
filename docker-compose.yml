@@ -1,0 +1,25 @@
+version: "3.4"
+
+services:
+  app:
+    image: ${IMAGE_APP}:${VERSION}
+    container_name: fiit_cloud_app
+    build:
+      context: .
+      dockerfile: ./src/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ${PWD}/src:/src
+    ulimits:
+      nofile:
+        soft: 4096
+        hard: 4096
+    restart: always
+    logging:
+      driver: journald
+    env_file:
+      - .env
+#    command: bash -c "gunicorn main:app -w 1 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000 --reload"
+
+

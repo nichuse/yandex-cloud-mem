@@ -81,11 +81,30 @@ resource "yandex_compute_instance_group" "ig-with-coi" {
   }
 
   load_balancer {
-    target_group_name        = "target-group"
-    target_group_description = "load balancer target group"
+    target_group_name = "nlb-tg"
+  }
+}
+
+resource "yandex_lb_network_load_balancer" "load-balancer" {
+  name = "nlb-1"
+  listener {
+    name = "nlb-listener"
+    port = 8000
+  }
+  attached_target_group {
+    target_group_id = yandex_compute_instance_group.ig-with-coi.load_balancer[0].target_group_id
+    healthcheck {
+      name                = "health-check-1"
+      unhealthy_threshold = 5
+      healthy_threshold   = 5
+      http_options {
+        path = "/"
+        port = 8000
+      }
+    }
   }
 }
 
 resource "yandex_container_registry" "default" {
-  name      = "fiit-cloud-nichuse"
+  name = "fiit-cloud-nichuse"
 }

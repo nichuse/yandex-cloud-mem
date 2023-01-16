@@ -1,6 +1,7 @@
 spec:
   containers:
-  - image: cr.yandex/yc/demo/coi:v1
+#  - image: ${IMAGE}:${VERSION}
+  - image: cr.yandex/crpnfs2snh8phbm3sa6o/cloud-mem:0
     securityContext:
       privileged: false
     stdin: false

@@ -1,7 +1,14 @@
 spec:
   containers:
-#  - image: ${IMAGE}:${VERSION}
-  - image: cr.yandex/crpnfs2snh8phbm3sa6o/cloud-mem:0
+  - image: cr.yandex/crpnfs2snh8phbm3sa6o/cloud-mem:1
+    env:
+    - name: YDB_ENDPOINT
+      value: "grpcs://ydb.serverless.yandexcloud.net:2135"
+    - name: YDB_DATABASE
+      value: "/ru-central1/b1ggu7d5e9qi9k2ounr0/etn8ovovukftibvrorsa"
+    - name: SA_KEY_FILE
+      value: "admin.sa"
+    publish: "8000:8000"
     securityContext:
       privileged: false
     stdin: false

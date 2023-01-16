@@ -63,6 +63,7 @@ resource "yandex_compute_instance_group" "ig-with-coi" {
     metadata = {
       user-data                    = file("${path.module}/cloud_config.yml")
       docker-container-declaration = file("${path.module}/declaration.yml")
+
     }
     service_account_id = data.yandex_iam_service_account.admin.id
   }

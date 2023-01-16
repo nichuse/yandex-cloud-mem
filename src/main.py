@@ -102,9 +102,6 @@ def shorten(event, body):
         link_id = hashlib.sha256(body.encode('utf8')).hexdigest()[:6]
         # в ссылке могут быть закодированные символы, например, %. это помешает работе api-gateway при редиректе,
         # поэтому следует избавиться от них вызовом urllib.parse.unquote
-        print("AAAAAAAAAAAAAAAAAAAaaa")
-        print(body)
-        print(urllib.parse.unquote(body))
         insert_link(link_id, urllib.parse.unquote(body))
         return response(200, {'Content-Type': 'application/json'}, False, json.dumps({'url': f'{original_host}/r/{link_id}'}))
 
